@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>嵌软EASY-Create</title>
+    <link rel="shortcut icon" href="static/images/favicon.ico" >
+    <link rel="stylesheet" href="static/layui/css/layui.css" >
 </head>
-<body>
-    <div id="body">
-        <div id="head">
-            {{ hello }}
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin" id="body">
+        <div class="layui-header">
+            <div class="layui-logo">
+                <a href="https://www.xiaogs.top" >
+                    <img style="width: 30px;" src="static/images/logo.jpg">
+                </a>
+                <span>嵌软EASY-Create</span>
+            </div>
         </div>
         <div id="menu">
 
         </div>
     </div>
+    <script type="text/javascript" src="static/layui/layui.all.js"></script>
+    <script type="text/javascript">
+        var layer = layui.layer;
+        form = layer.form;
+        layer.msg("hello layui!");
+    </script>
 </body>
 </html>
