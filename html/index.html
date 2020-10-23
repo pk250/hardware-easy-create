@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>嵌软EASY-Create</title>
-    <link rel="shortcut icon" href="static/images/favicon.ico" >
-    <link rel="stylesheet" href="static/layui/css/layui.css" >
+    <link rel="shortcut icon" href="/static/images/favicon.ico" >
+    <link type="text/css" rel="stylesheet" href="/static/layui/css/layui.css" >
 </head>
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin" id="body">
         <div class="layui-header">
             <div class="layui-logo">
                 <a href="https://www.xiaogs.top" >
-                    <img style="width: 30px;" src="static/images/logo.jpg">
+                    <img style="width: 30px;" src="/static/images/logo.jpg">
                 </a>
                 <span>嵌软EASY-Create</span>
             </div>
         </div>
         <div class="layui-side layui-bg-black" id="menu">
+            {% if menu_list %}
             <ul class="layui-nav layui-nav-tree" >
-                <li class="layui-nav-item"><a href="#">首页</a></li>
-                <li class="layui-nav-item"><a>需求规格说明书</a></li>
-                <li class="layui-nav-item"><a>软件设计概要</a></li>
+                {% for menu in menu_list %}
+                    {% if menu.parcen_id == 0 %}
+                        <li class="layui-nav-item"><a href="{{menu.menu_url}}">{{menu.menu_name}}</a></li>
+                    {% endif %}
+                {% endfor %}
                 <li class="layui-nav-item"><a>框架搭建</a>
                     <dl class="layui-nav-child">
                         <dd><a>带系统</a></dd>
@@ -29,18 +32,19 @@
                         <dd><a>外设配置</a></dd>
                     </dl>
                 </li>
+                
             </ul>
+            {% endif %}
         </div>
         <div class="layui-body">
             <div style="padding: 15px;">
-                主页
             </div>
         </div>
         <div class="layui-footer">
             @xiaogs.top
         </div>
     </div>
-    <script type="text/javascript" src="static/layui/layui.all.js"></script>
+    <script type="text/javascript" src="/static/layui/layui.all.js"></script>
     <script type="text/javascript">
         var layer = layui.layer;
         form = layer.form;
